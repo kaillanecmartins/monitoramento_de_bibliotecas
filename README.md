@@ -1,4 +1,4 @@
-## Projeto Sistema de Monitoramento de Bibliotecas 
+# Projeto Sistema de Monitoramento de Bibliotecas 
 ### Disciplina: Internet das Coisas - Profª Salete Farias
 ### Aluna: Kaillane Martins
 
@@ -31,8 +31,10 @@ via MQTT os estados para o Dashboard central.
 
 Os sensores de presença já funcionam, além dos leds de indicação de ocupação da cabine com duas cabines de simulação. O sistema também possue um alerta para caso o sensor de umidade e temperatura detecte uma umidade acima do que é recomendado para conservação dos livros
 
-## Simulação
+### Simulação
 
 Acesse [circuito wokwi](https://wokwi.com/projects/463128722414280705) para visualizar a simulação do projeto
 
 ![alt text](https://github.com/kaillanecmartins/monitoramento_de_bibliotecas/blob/main/img/circuito.png "circuito do projeto")
+
+### Instruções de Uso
