@@ -6,4 +6,4 @@
 
 Acesse [circuito wokwi](https://wokwi.com/projects/463128722414280705) para visualizar a simulação do projeto
 
-![alt text]()
+![alt text](https://github.com/kaillanecmartins/monitoramento_de_bibliotecas/blob/main/img/circuito.png "circuito do projeto")
