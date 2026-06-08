@@ -38,3 +38,7 @@ Acesse [circuito wokwi](https://wokwi.com/projects/463128722414280705) para visu
 ![alt text](https://github.com/kaillanecmartins/monitoramento_de_bibliotecas/blob/main/img/circuito.png "circuito do projeto")
 
 ### Instruções de Uso
+
+### Dashboard
+
+Acesse [dashboard](https://monitoramentodebibliotecas.vercel.app/) para visualizar o dashboard do projeto
