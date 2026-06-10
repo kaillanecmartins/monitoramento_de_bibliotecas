@@ -51,7 +51,7 @@ void conectarWiFi() {
   Serial.println(WiFi.localIP());
 }
 
-void callback(char* topic, byte* payload, unsigned int length) {
+/*void callback(char* topic, byte* payload, unsigned int length) {
 
   Serial.print("Mensagem recebida: ");
 
@@ -80,7 +80,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
       Serial.println("LED REMOTO DESLIGADO");
     }
   }
-}
+}*/
 
 void conectarMQTT() {
 
@@ -128,7 +128,7 @@ void setup() {
 
   client.setServer(mqtt_server, mqtt_port);
   espClient.setInsecure();
-  client.setCallback(callback);
+  //client.setCallback(callback);
 }
 
 void loop() {
