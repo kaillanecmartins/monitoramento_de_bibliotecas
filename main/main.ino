@@ -13,8 +13,10 @@ const int mqtt_port = 8883;
 const char* topic_led = "kai/led";
 const char* topic_sensores = "kai/sensores";
 
-#define led1 19
-#define led2 18
+#define ledRG1 19
+#define ledRG2 21
+#define ledRGB1 5
+#define ledRGB2 18
 
 #define DHT_pin 15
 #define IR1_pin 4
@@ -65,7 +67,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
       ledRemoto = true;
 
-      digitalWrite(led1, HIGH);
+      digitalWrite(ledRG1, HIGH);
       Serial.println("LED REMOTO LIGADO");
     }
 
@@ -73,7 +75,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
       ledRemoto = false;
 
-      digitalWrite(led1, LOW);
+      digitalWrite(ledRG1, LOW);
 
       Serial.println("LED REMOTO DESLIGADO");
     }
@@ -109,8 +111,10 @@ void setup() {
 
   Serial.begin(115200);
 
-  pinMode(led1, OUTPUT);
-  pinMode(led2, OUTPUT);
+  pinMode(ledRG1, OUTPUT);
+  pinMode(ledRG2, OUTPUT);
+  pinMode(ledRGB1, OUTPUT);
+  pinMode(ledRGB2, OUTPUT);
 
   pinMode(DHT_pin, INPUT);
   pinMode(IR1_pin, INPUT);
@@ -162,15 +166,19 @@ void loop() {
 
 
     if (!presenca1 && !ledRemoto) {
-      digitalWrite(led1, HIGH);
-    } else if(!ledRemoto){
-      digitalWrite(led1, LOW);
+      digitalWrite(ledRG1, HIGH);
+      digitalWrite(ledRG2, LOW);
+    } else if(presenca1){
+      digitalWrite(ledRG1, LOW);
+      digitalWrite(ledRG2, HIGH);
     }
 
     if (!presenca2 && !ledRemoto) {
-      digitalWrite(led2, HIGH);
-    } else if(!ledRemoto){
-      digitalWrite(led2, LOW);
+      digitalWrite(ledRGB1, HIGH);
+      digitalWrite(ledRGB2, LOW);
+    } else if(presenca2){
+      digitalWrite(ledRGB1, LOW);
+      digitalWrite(ledRGB2, HIGH);
     }
 
     StaticJsonDocument<128> doc;
