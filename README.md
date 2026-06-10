@@ -1,5 +1,7 @@
-# Projeto Sistema de Monitoramento de Bibliotecas 
+# Projeto Sistema de Monitoramento de Bibliotecas
+
 ### Disciplina: Internet das Coisas - Profª Salete Farias
+
 ### Aluna: Kaillane Martins
 
 ### Problema
@@ -21,6 +23,7 @@ identifica "reserva fantasma") → O sistema atua no LED RGB local e publica
 via MQTT os estados para o Dashboard central.
 
 ### Lista de componentes
+
 - ESP32;
 - Sensor IR;
 - Sensor PIR;
@@ -42,3 +45,11 @@ Acesse [circuito wokwi](https://wokwi.com/projects/463128722414280705) para visu
 ### Dashboard
 
 Acesse [dashboard](https://monitoramentodebibliotecas.vercel.app/) para visualizar o dashboard do projeto
+
+### Melhorias
+
+- Separar em dois dashboards: um para os alunos e outro para o(a) bibliotecário(a)
+
+- Incluir botões de alerta para os alunos que estiverem fazendo barulho
+
+- Incluir sensor de detecção de ruído
