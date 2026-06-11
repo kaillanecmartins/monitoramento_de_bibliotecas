@@ -1,55 +1,81 @@
 # Projeto Sistema de Monitoramento de Bibliotecas
 
-## Disciplina: Internet das Coisas - Profª Salete Farias
+### Disciplina: Internet das Coisas - Profª Salete Farias
 
-## Aluna: Kaillane Martins
+### Aluna: Kaillane Martins
+
+## Descrição do Sistema
+
+O sistema realiza o monitoramento em tempo real da ocupação das mesas e das condições ambientais da biblioteca.
+
+As informações coletadas são exibidas em um dashboard central, que apresenta um mapa de ocupação dos espaços e indicadores de conforto, como temperatura, umidade e nível de ruído.
+
+Além disso, o sistema pode executar ações automáticas, como:
+
+- Acionar LEDs indicadores nas mesas para informar o estado de ocupação ou alertar sobre excesso de ruído;
+- Identificar possíveis casos de reservas fantasmas;
+- Enviar notificações para a equipe responsável quando forem detectadas condições ambientais que possam comprometer a conservação do acervo.
 
 ## Problema
 
-A dificuldade de encontrar mesas livres em horários de pico e a ocorrência de "reservas fantasmas" (objetos deixados para segurar lugar). Além disso, o sistema poderá ter como um “plus” resolver a baixa produtividade por condições ambientais inadequadas (excesso de ruído/calor) e o risco de degradação do acervo físico (livros) por controle de umidade.
+Durante os horários de pico, estudantes enfrentam dificuldades para encontrar mesas ou cabines disponíveis para estudo. Além disso, é comum a ocorrência de **"reservas fantasmas"**, situação em que objetos pessoais são deixados em uma mesa para simular ocupação, impedindo que outros usuários utilizem o espaço.
 
-## Descrição do sistema
+Como benefício adicional, o sistema também busca melhorar a experiência dos usuários por meio do monitoramento das condições ambientais da biblioteca, identificando níveis excessivos de ruído e condições inadequadas de temperatura e umidade. O controle desses fatores contribui tanto para o conforto dos estudantes quanto para a preservação do acervo físico, especialmente dos livros, que podem ser danificados pela umidade excessiva.
 
-Atualizar um dashboard com mapa de ocupação e índices de
-silêncio/conforto; acionar um LED RGB local na mesa (ex: pisca em vermelho
-se o ruído exceder o limite); e disparar notificações para a manutenção caso a
-umidade ameace a integridade dos livros.
+## Fluxo de Dados
 
-## Fluxo de dados
+1. Os sensores coletam informações sobre presença, ocupação e condições ambientais.
+2. O ESP32 processa os dados recebidos, filtrando leituras inconsistentes e validando a ocupação dos espaços.
+3. Caso seja detectado peso ou objetos sem a presença de uma pessoa, o sistema identifica uma possível reserva fantasma.
+4. O sistema atualiza os LEDs locais para indicar o estado da mesa ou cabine.
+5. As informações processadas são publicadas via MQTT e enviadas ao dashboard central para visualização em tempo real.
 
-Os Sensores captam os dados físicos → O ESP32 (Processamento) filtra
-ruídos irrelevantes e valida a ocupação (ex: se há peso mas não há PIR,
-identifica "reserva fantasma") → O sistema atua no LED RGB local e publica
-via MQTT os estados para o Dashboard central.
+## Lista de Componentes
 
-## Lista de componentes
+- ESP32
+- Sensor IR (simulando um sensor de movimento)
+- Sensor de movimento PIR
+- 2 LEDs indicadores
+- Sensor DHT11 (temperatura e umidade)
 
-- ESP32;
-- Sensor IR;
-- Sensor PIR;
-- 2 Leds;
-- Sensor DHT11;
+## Implementações Realizadas
 
-## Implementações até o momento
+Atualmente, o sistema possui as seguintes funcionalidades implementadas:
 
-Os sensores de presença já funcionam, além dos leds de indicação de ocupação da cabine com duas cabines de simulação. O sistema também possue um alerta para caso o sensor de umidade e temperatura detecte uma umidade acima do que é recomendado para conservação dos livros
+- Detecção de presença utilizando sensores PIR e IR;
+- Simulação de duas cabines com monitoramento de ocupação;
+- LEDs indicadores para sinalização visual do estado das cabines;
+- Monitoramento de temperatura e umidade;
+- Geração de alertas quando a umidade ultrapassa os níveis recomendados para a conservação dos livros.
 
-## Simulação
+## Circuito
 
-Acesse [circuito wokwi](https://wokwi.com/projects/463128722414280705) para visualizar a simulação do projeto
+Acesse o [circuito no Wokwi](https://wokwi.com/projects/463128722414280705) para visualizar a simulação do projeto.
 
-![alt text](https://github.com/kaillanecmartins/monitoramento_de_bibliotecas/blob/main/img/circuito.png "circuito do projeto")
+![Circuito do projeto](https://github.com/kaillanecmartins/monitoramento_de_bibliotecas/blob/main/img/circuito.png)
 
 ## Instruções de Uso
 
-## Dashboard
+### Dashboard
 
-Acesse [dashboard](https://monitoramentodebibliotecas.vercel.app/) para visualizar o dashboard do projeto
+![Dashboard do projeto](https://github.com/kaillanecmartins/monitoramento_de_bibliotecas/blob/main/img/tela_dashboard1.png)
 
-## Melhorias
+![Dashboard do projeto](https://github.com/kaillanecmartins/monitoramento_de_bibliotecas/blob/main/img/tela_dashboard2.png)
 
-- Separar em dois dashboards: um para os alunos e outro para o(a) bibliotecário(a)
+![Dashboard do projeto](https://github.com/kaillanecmartins/monitoramento_de_bibliotecas/blob/main/img/dashboard_alert.png)
 
-- Incluir botões de alerta para os alunos que estiverem fazendo barulho
+Acesse o [dashboard do projeto](https://monitoramentodebibliotecas.vercel.app/) para acompanhar em tempo real os dados de ocupação e monitoramento ambiental.
 
-- Incluir sensor de detecção de ruído
+## Melhorias Futuras
+
+- Separar o sistema em dois dashboards:
+  - Dashboard do estudante, focado na consulta de mesas e cabines disponíveis;
+  - Dashboard do(a) bibliotecário(a), com informações administrativas e alertas de manutenção.
+
+- Implementar alertas visuais ou notificações para usuários que estiverem gerando excesso de ruído.
+
+- Adicionar um sensor de detecção de ruído para monitoramento do nível sonoro da biblioteca.
+
+- Implementar histórico e geração de relatórios sobre ocupação e condições ambientais.
+
+- Desenvolver notificações em tempo real para a equipe responsável pela biblioteca.
