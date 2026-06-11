@@ -160,10 +160,10 @@ void loop() {
      * Verde: ambiente livre.
      * Vermelho: presença detectada.
      */
-    if (!presenca2) {
+    if (presenca2) {
       digitalWrite(ledRGB1, HIGH);
       digitalWrite(ledRGB2, LOW);
-    } else if (presenca2) {
+    } else if (!presenca2) {
       digitalWrite(ledRGB1, LOW);
       digitalWrite(ledRGB2, HIGH);
     }
