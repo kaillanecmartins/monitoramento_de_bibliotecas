@@ -50,9 +50,13 @@ Atualmente, o sistema possui as seguintes funcionalidades implementadas:
 
 ## Circuito
 
-Acesse o [circuito no Wokwi](https://wokwi.com/projects/463128722414280705) para visualizar a simulação do projeto.
+<p align="center">
+  <img src="https://github.com/kaillanecmartins/monitoramento_de_bibliotecas/blob/main/img/circuito.png?raw=true"
+       alt="Circuito do projeto"
+       width="400">
+</p>
 
-![Circuito do projeto](https://github.com/kaillanecmartins/monitoramento_de_bibliotecas/blob/main/img/circuito.png)
+Acesse o [circuito no Wokwi](https://wokwi.com/projects/463128722414280705) para visualizar a simulação do projeto.
 
 ## Instruções de Uso
 
