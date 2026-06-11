@@ -58,9 +58,26 @@ Atualmente, o sistema possui as seguintes funcionalidades implementadas:
 
 Acesse o [circuito no Wokwi](https://wokwi.com/projects/463128722414280705) para visualizar a simulação do projeto.
 
-## Instruções de Uso
+## Instruções de Execução
 
--
+### Pré Requisitos:
+
+- Arduino IDE instalado;
+- Placa ESP32 instalada;
+- Bibliotecas WiFi, PubSubClient, DHT e ArduinoJson instaladas;
+
+### Execução:
+
+1. No Arduino IDE abra o código main.ino na pasta main do projeto
+2. Incluia suas credenciais de wifi no código
+3. Carregue o código na placa ESP32 já com as conexões indicadas no circuito
+4. Abra o dashboard do projeto através do link na aba `Dashboard`
+
+## Instruções de uso no simulador
+
+1. Acesse o link do circuito na aba `Circuito`
+2. Execute o projeto
+3. Acesse o link do dashboard na aba `Dashboard`
 
 ## Dashboard
 
