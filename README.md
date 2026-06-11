@@ -60,7 +60,9 @@ Acesse o [circuito no Wokwi](https://wokwi.com/projects/463128722414280705) para
 
 ## Instruções de Uso
 
-### Dashboard
+-
+
+## Dashboard
 
 ![Dashboard do projeto](https://github.com/kaillanecmartins/monitoramento_de_bibliotecas/blob/main/img/tela_dashboard1.png)
 

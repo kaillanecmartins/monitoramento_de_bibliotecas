@@ -4,25 +4,29 @@
 #include <DHT.h>
 #include <ArduinoJson.h>
 
+// Credenciais da rede Wi-Fi
 const char* ssid = "";
 const char* password = "";
 
+// Configurações do broker MQTT
 const char* mqtt_server = "broker.emqx.io";
 const int mqtt_port = 8883;
 
+// Tópicos MQTT
 const char* topic_led = "kai/led";
 const char* topic_sensores = "kai/sensores";
 
+// LEDs indicadores
 #define ledRG1 19
 #define ledRG2 21
 #define ledRGB1 5
 #define ledRGB2 18
 
+// Sensores
 #define DHT_pin 15
 #define IR1_pin 4
-//#define IR2_pin 4
 #define PIR_pin 22
-//#define KY_pin 15
+
 #define DHTTYPE DHT11
 
 WiFiClientSecure espClient;
@@ -31,8 +35,7 @@ DHT dht(DHT_pin, DHTTYPE);
 
 unsigned long lastPublish = 0;
 
-bool ledRemoto = false;
-
+//Conecta o ESP32 à rede Wi-Fi
 void conectarWiFi() {
 
   Serial.println("Conectando ao WiFi...");
@@ -51,36 +54,8 @@ void conectarWiFi() {
   Serial.println(WiFi.localIP());
 }
 
-/*void callback(char* topic, byte* payload, unsigned int length) {
 
-  Serial.print("Mensagem recebida: ");
-
-  for (int i = 0; i < length; i++) {
-    Serial.print((char)payload[i]);
-  }
-
-  Serial.println();
-
-  if (length == 1) {
-
-    if (payload[0] == '1') {
-
-      ledRemoto = true;
-
-      digitalWrite(ledRG1, HIGH);
-      Serial.println("LED REMOTO LIGADO");
-    }
-
-    else if (payload[0] == '0') {
-
-      ledRemoto = false;
-
-      digitalWrite(ledRG1, LOW);
-
-      Serial.println("LED REMOTO DESLIGADO");
-    }
-  }
-}*/
+//Realiza a conexão com o broker MQTT
 
 void conectarMQTT() {
 
@@ -88,6 +63,7 @@ void conectarMQTT() {
 
     Serial.println("Conectando MQTT...");
 
+    // Gera um identificador único para o cliente MQTT
     String clientId =
       "ESP32-" + String(random(0xffff), HEX);
 
@@ -95,6 +71,7 @@ void conectarMQTT() {
 
       Serial.println("MQTT conectado!");
 
+      // Inscrição no tópico de controle dos LEDs
       client.subscribe(topic_led);
 
     } else {
@@ -111,90 +88,102 @@ void setup() {
 
   Serial.begin(115200);
 
+  // Configuração dos LEDs como saída
   pinMode(ledRG1, OUTPUT);
   pinMode(ledRG2, OUTPUT);
   pinMode(ledRGB1, OUTPUT);
   pinMode(ledRGB2, OUTPUT);
 
+  // Configuração dos sensores como entrada
   pinMode(DHT_pin, INPUT);
   pinMode(IR1_pin, INPUT);
-  //pinMode(IR2_pin, INPUT);
   pinMode(PIR_pin, INPUT);
-  //pinMode(KY_pin, INPUT);
 
+  //configuração do sensor DHT11
   dht.begin();
-
   conectarWiFi();
-
   client.setServer(mqtt_server, mqtt_port);
   espClient.setInsecure();
-  //client.setCallback(callback);
 }
 
 void loop() {
 
+  // Reconecta ao Wi-Fi caso a conexão seja perdida
   if (WiFi.status() != WL_CONNECTED) {
 
     Serial.println("WiFi desconectado!");
     conectarWiFi();
   }
 
+  // Reconecta ao broker MQTT caso necessário
   if (!client.connected()) {
     conectarMQTT();
   }
 
   client.loop();
 
+  // Publica os dados dos sensores a cada 2 segundos
   if (millis() - lastPublish > 2000) {
 
     lastPublish = millis();
 
+    // Leitura dos sensores de temperatura e umidade
     float temp = dht.readTemperature();
     float hum = dht.readHumidity();
 
-
+    // Leitura dos sensores de presença
     int presenca2 = digitalRead(PIR_pin);
-    //int som = analogRead(KY_pin);
-    int presenca1 = digitalRead(IR1_pin); 
-    //int presenca2 = digitalRead(IR2_pin); 
+    int presenca1 = digitalRead(IR1_pin);
 
+    // Verifica falha na leitura do DHT11
     if (isnan(temp) || isnan(hum)) {
 
       Serial.println("Erro no DHT11");
       return;
     }
 
-
-    if (!presenca1 && !ledRemoto) {
+    /*
+     * Controle dos LEDs do primeiro ambiente.
+     * Verde: ambiente livre.
+     * Vermelho: presença detectada.
+     */
+    if (!presenca1) {
       digitalWrite(ledRG1, HIGH);
       digitalWrite(ledRG2, LOW);
-    } else if(presenca1){
+    } else if (presenca1) {
       digitalWrite(ledRG1, LOW);
       digitalWrite(ledRG2, HIGH);
     }
 
-    if (!presenca2 && !ledRemoto) {
+    /*
+     * Controle dos LEDs do segundo ambiente.
+     * Verde: ambiente livre.
+     * Vermelho: presença detectada.
+     */
+    if (!presenca2) {
       digitalWrite(ledRGB1, HIGH);
       digitalWrite(ledRGB2, LOW);
-    } else if(presenca2){
+    } else if (presenca2) {
       digitalWrite(ledRGB1, LOW);
       digitalWrite(ledRGB2, HIGH);
     }
 
+    // Criação do objeto JSON para envio dos dados
     StaticJsonDocument<128> doc;
 
     doc["temperatura"] = temp;
     doc["umidade"] = hum;
     doc["movimento1"] = presenca1;
     doc["movimento2"] = presenca2;
-    //doc["som"] = som;
 
     char buffer[128];
 
     serializeJson(doc, buffer);
 
+    // Publica os dados dos sensores no tópico MQTT
     client.publish(topic_sensores, buffer);
 
+    // Exibe os dados enviados no monitor serial
     Serial.println(buffer);
   }
 }
