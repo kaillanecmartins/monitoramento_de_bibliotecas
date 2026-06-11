@@ -1,8 +1,8 @@
 # Projeto Sistema de Monitoramento de Bibliotecas
 
-### Disciplina: Internet das Coisas - Profª Salete Farias
+Disciplina: Internet das Coisas - Profª Salete Farias
 
-### Aluna: Kaillane Martins
+Aluna: Kaillane Martins
 
 ## Descrição do Sistema
 
