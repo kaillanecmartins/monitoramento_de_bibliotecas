@@ -5,8 +5,8 @@
 #include <ArduinoJson.h>
 
 // Credenciais da rede Wi-Fi
-const char* ssid = "";
-const char* password = "";
+const char* ssid = "kaillane";
+const char* password = "20240712";
 
 // Configurações do broker MQTT
 const char* mqtt_server = "broker.emqx.io";
