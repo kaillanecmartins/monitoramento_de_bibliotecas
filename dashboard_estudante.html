@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard IoT</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+    <section class="hero is-fullheight">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title has-text-centered">
+            Projeto IoT - Monitoramento de Bibliotecas
+          </h1>
+
+          <h2 class="subtitle has-text-centered mt-3 mb-6">Kaillane Martins</h2>
+
+          <!-- Cards responsáveis por exibir os dados das cabines -->
+          <div class="columns is-multiline is-centered">
+            <div
+              class="column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen"
+            >
+              <div class="card sensor-card has-text-centered p-5">
+                <div class="sensor-title">Cabine 1</div>
+                <div id="movimento1" class="sensor-value">--</div>
+              </div>
+            </div>
+
+            <div
+              class="column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen"
+            >
+              <div class="card sensor-card has-text-centered p-5">
+                <div class="sensor-title">Cabine 2</div>
+                <div id="movimento2" class="sensor-value">--</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
