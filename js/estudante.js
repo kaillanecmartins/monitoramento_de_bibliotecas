@@ -35,7 +35,7 @@ function atualizarMapa(id, ocupada) {
 conectarMQTT((dados) => {
   const livre1 = dados.movimento1 != 0;
 
-  const livre2 = dados.movimento2 != 0;
+  const livre2 = dados.movimento2 != 1;
 
   let livres = 0;
 

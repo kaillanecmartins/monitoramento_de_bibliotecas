@@ -23,7 +23,7 @@ function atualizarCabines(data) {
 
   const cab2 = document.getElementById("movimento2");
 
-  if (data.movimento2 == 0) {
+  if (data.movimento2 == 1) {
     cab2.textContent = "Ocupada";
 
     cab2.className = "sensor-value alerta";

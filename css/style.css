@@ -125,7 +125,6 @@ body {
 }
 
 .mapa-biblioteca {
-  background: #ffffff;
   border: 2px solid #d9d9d9;
   border-radius: 12px;
   padding: 24px;
@@ -136,15 +135,6 @@ body {
   font-weight: bold;
   font-size: 1.2rem;
   margin-bottom: 20px;
-}
-
-.corredor {
-  background: #ececec;
-  border-radius: 8px;
-  text-align: center;
-  padding: 10px;
-  font-weight: bold;
-  margin-bottom: 25px;
 }
 
 .cabine {
