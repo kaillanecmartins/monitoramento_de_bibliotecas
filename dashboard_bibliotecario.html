@@ -56,25 +56,51 @@
               </div>
             </div>
           </div>
-          <!-- Alerta exibido quando a umidade ultrapassa o limite configurado -->
-          <div
-            id="alerta-umidade"
-            class="notification is-danger has-text-centered mt-4"
-            style="display: none"
-          >
-            Alerta: Umidade acima do limite permitido!
-          </div>
+          <!-- Painel de alertas -->
+          <div class="box mt-5" id="painel-alertas">
+            <h2 class="title is-5 has-text-centered">
+                Alertas do Ambiente
+            </h2>
 
-          <!-- Área de exibição do status da conexão MQTT -->
-          <div class="box mt-6" style="max-width: 450px; margin: auto">
-            <h2 class="title is-5 has-text-centered">Status do Sistema</h2>
+            <div
+                id="alerta-temperatura"
+                class="notification is-warning"
+                style="display:none"
+            >
+                Temperatura acima do recomendado.
+            </div>
 
-            <p id="status" class="has-text-centered status-erro">
-              Conectando...
-            </p>
-          </div>
+            <div
+                id="alerta-umidade"
+                class="notification is-danger"
+                style="display:none"
+            >
+                Umidade acima do recomendado.
+            </div>
+
+            <div
+                id="alerta-ruido"
+                class="notification is-danger"
+                style="display:none"
+            >
+                Excesso de ruído detectado.
+            </div>
+
+            <div
+                id="sem-alertas"
+                class="notification is-success"
+            >
+                Ambiente dentro das condições ideais.
+            </div>
+
+        </div>
         </div>
       </div>
     </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"></script>
+
+    <script src="js/mqtt.js"></script>
+
+    <script src="js/bibliotecario.js"></script>
   </body>
 </html>
