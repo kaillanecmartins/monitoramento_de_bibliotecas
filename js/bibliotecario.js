@@ -81,3 +81,66 @@ conectarMQTT(
     }
 
 );
+
+function verificarAlertas(data){
+
+    const alertaTemp =
+        document.getElementById("alerta-temperatura");
+
+    const alertaHum =
+        document.getElementById("alerta-umidade");
+
+    const alertaRuido =
+        document.getElementById("alerta-ruido");
+
+    const semAlertas =
+        document.getElementById("sem-alertas");
+
+    let existeAlerta = false;
+
+    // Temperatura
+
+    if(data.temperatura > 24){
+
+        alertaTemp.style.display = "block";
+
+        existeAlerta = true;
+
+    }else{
+
+        alertaTemp.style.display = "none";
+
+    }
+
+    // Umidade
+
+    if(data.umidade > 65){
+
+        alertaHum.style.display = "block";
+
+        existeAlerta = true;
+
+    }else{
+
+        alertaHum.style.display = "none";
+
+    }
+
+    // Ruído
+
+    if(data.ruido > 50){
+
+        alertaRuido.style.display = "block";
+
+        existeAlerta = true;
+
+    }else{
+
+        alertaRuido.style.display = "none";
+
+    }
+
+    semAlertas.style.display =
+        existeAlerta ? "none" : "block";
+
+}
