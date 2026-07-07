@@ -191,3 +191,14 @@ body {
 .menu-icon {
   color: #7957d5;
 }
+.notification .icon {
+  margin-right: 10px;
+
+  vertical-align: middle;
+}
+
+.notification {
+  display: flex;
+
+  align-items: center;
+}
