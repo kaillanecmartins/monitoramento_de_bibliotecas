@@ -81,24 +81,25 @@ Acesse o [circuito no Wokwi](https://wokwi.com/projects/463128722414280705) para
 
 ## Dashboard
 
-![Dashboard do projeto](https://github.com/kaillanecmartins/monitoramento_de_bibliotecas/blob/main/img/tela_dashboard1.png)
+### Tela inicial
 
-![Dashboard do projeto](https://github.com/kaillanecmartins/monitoramento_de_bibliotecas/blob/main/img/tela_dashboard2.png)
+![Tela Inicial](https://github.com/kaillanecmartins/monitoramento_de_bibliotecas/blob/main/img/tela_inicial.png)
 
-![Dashboard do projeto](https://github.com/kaillanecmartins/monitoramento_de_bibliotecas/blob/main/img/dashboard_alert.png)
+### Dashboard do Estudante
+
+![Dashboard do estudante](https://github.com/kaillanecmartins/monitoramento_de_bibliotecas/blob/main/img/dashboard_estudante.png)
+![Mapa de cabines](https://github.com/kaillanecmartins/monitoramento_de_bibliotecas/blob/main/img/mapa_cabines.png)
+
+### Dashboard do Bibliotecário
+
+![Dashboard do bibliotecário](https://github.com/kaillanecmartins/monitoramento_de_bibliotecas/blob/main/img/dashboard_bibliotecario.png)
 
 Acesse o [dashboard do projeto](https://monitoramentodebibliotecas.vercel.app/) para acompanhar em tempo real os dados de ocupação e monitoramento ambiental.
 
 ## Melhorias Futuras
-
-- Separar o sistema em dois dashboards:
-  - Dashboard do estudante, focado na consulta de mesas e cabines disponíveis;
-  - Dashboard do(a) bibliotecário(a), com informações administrativas e alertas de manutenção.
 
 - Implementar alertas visuais ou notificações para usuários que estiverem gerando excesso de ruído.
 
 - Adicionar um sensor de detecção de ruído para monitoramento do nível sonoro da biblioteca.
 
 - Implementar histórico e geração de relatórios sobre ocupação e condições ambientais.
-
-- Desenvolver notificações em tempo real para a equipe responsável pela biblioteca.
