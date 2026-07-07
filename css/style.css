@@ -1,113 +1,185 @@
-    body {
-        font-family: Georgia, "Times New Roman", Times, serif;
-      }
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
 
-      .hero {
-        background: linear-gradient(135deg, #d5dbf4, #e3d6f0);
-      }
+.hero {
+  background: linear-gradient(135deg, #d5dbf4, #e3d6f0);
+}
 
-      .title,
-      .subtitle {
-        color: #2c3e50;
-      }
+.title,
+.subtitle {
+  color: #2c3e50;
+}
 
-      #alerta-gas {
-        font-weight: bold;
-        text-align: center;
-        animation: piscar 1s infinite;
-        border-radius: 12px;
-      }
+#alerta-gas {
+  font-weight: bold;
+  text-align: center;
+  animation: piscar 1s infinite;
+  border-radius: 12px;
+}
 
-      @keyframes piscar {
-        0% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.5;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
+@keyframes piscar {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
-      .card {
-        background: white;
-        border-radius: 16px;
-        color: #2c3e50;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        transition: 0.3s;
-      }
+.card {
+  background: white;
+  border-radius: 16px;
+  color: #2c3e50;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
 
-      .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-      }
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
 
-      .sensor-title {
-        font-size: 1rem;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
+.sensor-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
-      .sensor-value {
-        font-size: 1.8rem;
-        font-weight: bold;
-      }
+.sensor-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
 
-      .ok {
-        color: #2ecc71;
-      }
+.ok {
+  color: #2ecc71;
+}
 
-      .alerta {
-        color: #e74c3c;
-      }
+.alerta {
+  color: #e74c3c;
+}
 
-      .box {
-        background: white;
-        border-radius: 16px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      }
+.box {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
 
-      .button {
-        border-radius: 10px;
-        transition: 0.2s;
-      }
+.button {
+  border-radius: 10px;
+  transition: 0.2s;
+}
 
-      .bt1:hover {
-        background-color: #f69c9e;
-        font-weight: 700;
-        transform: scale(1.05);
-      }
+.bt1:hover {
+  background-color: #f69c9e;
+  font-weight: 700;
+  transform: scale(1.05);
+}
 
-      .bt2:hover {
-        background-color: #97e3c2;
-        font-weight: 700;
-        transform: scale(1.05);
-      }
+.bt2:hover {
+  background-color: #97e3c2;
+  font-weight: 700;
+  transform: scale(1.05);
+}
 
-      #status {
-        font-weight: bold;
-      }
+#status {
+  font-weight: bold;
+}
 
-      .status-ok {
-        color: #2ecc71;
-      }
+.status-ok {
+  color: #2ecc71;
+}
 
-      .status-erro {
-        color: #e74c3c;
-      }
-      .container {
-        max-width: 1400px;
-      }
+.status-erro {
+  color: #e74c3c;
+}
+.container {
+  max-width: 1400px;
+}
 
-      .sensor-card {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        min-height: 180px;
-      }
+.sensor-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 180px;
+}
 
-      .columns {
-        justify-content: center;
-      }
+.columns {
+  justify-content: center;
+}
+.modal-card {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.modal-card-body {
+  background-color: #ffffff;
+}
+
+.mapa-biblioteca {
+  background: #ffffff;
+  border: 2px solid #d9d9d9;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.titulo-mapa {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.corredor {
+  background: #ececec;
+  border-radius: 8px;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.cabine {
+  border: 2px solid #cfcfcf;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.cabine p {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.legenda {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 25px;
+}
+
+.item-legenda {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cor-legenda {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+}
+
+.livre {
+  background: #48c78e;
+}
+
+.ocupada {
+  background: #f14668;
+}

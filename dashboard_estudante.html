@@ -52,22 +52,38 @@
         </header>
 
         <section class="modal-card-body">
-          <div class="columns">
-            <div class="column">
-              <div class="box has-text-centered" id="cab1Mapa">Cabine 1</div>
+          <div class="mapa-biblioteca">
+            <div class="titulo-mapa">Mapa das cabines</div>
+
+            <div class="columns">
+              <div class="column">
+                <div class="cabine" id="cab1Mapa">
+                  <strong>Cabine 1</strong>
+
+                  <p>Livre</p>
+                </div>
+              </div>
+
+              <div class="column">
+                <div class="cabine" id="cab2Mapa">
+                  <strong>Cabine 2</strong>
+
+                  <p>Livre</p>
+                </div>
+              </div>
             </div>
 
-            <div class="column">
-              <div class="box has-text-centered" id="cab2Mapa">Cabine 2</div>
+            <div class="legenda">
+              <div class="item-legenda">
+                <div class="cor-legenda livre"></div>
+                <span>Cabine disponível</span>
+              </div>
+
+              <div class="item-legenda">
+                <div class="cor-legenda ocupada"></div>
+                <span>Cabine ocupada</span>
+              </div>
             </div>
-          </div>
-
-          <div class="content">
-            <p>
-              <span class="tag is-success"> Livre </span>
-
-              <span class="tag is-danger"> Ocupada </span>
-            </p>
           </div>
         </section>
       </div>

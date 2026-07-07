@@ -16,13 +16,19 @@ function atualizarMapa(id, ocupada) {
   const box = document.getElementById(id);
 
   if (ocupada) {
-    box.className = "box has-background-danger-light";
+    box.className = "cabine has-background-danger-light";
 
-    box.innerHTML = "<strong>Cabine</strong><br>Ocupada";
+    box.innerHTML = `
+      <strong>Cabine ${id === "cab1Mapa" ? "1" : "2"}</strong>
+      <p>Ocupada</p>
+    `;
   } else {
-    box.className = "box has-background-success-light";
+    box.className = "cabine has-background-success-light";
 
-    box.innerHTML = "<strong>Cabine</strong><br>Livre";
+    box.innerHTML = `
+      <strong>Cabine ${id === "cab1Mapa" ? "1" : "2"}</strong>
+      <p>Disponível</p>
+    `;
   }
 }
 
