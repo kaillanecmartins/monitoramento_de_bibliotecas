@@ -1,27 +1,45 @@
-function atualizarCabine(id, ocupada){
+const modal = document.getElementById("modalMapa");
 
-    const elemento = document.getElementById(id);
+document.getElementById("btnMapa").onclick = () => {
+  modal.classList.add("is-active");
+};
 
-    if(ocupada == 0){
+document.getElementById("fecharMapa").onclick = () => {
+  modal.classList.remove("is-active");
+};
 
-        elemento.textContent = "Ocupada";
+document.querySelector(".modal-background").onclick = () => {
+  modal.classList.remove("is-active");
+};
 
-        elemento.className = "sensor-value alerta";
+function atualizarMapa(id, ocupada) {
+  const box = document.getElementById(id);
 
-    }else{
+  if (ocupada) {
+    box.className = "box has-background-danger-light";
 
-        elemento.textContent = "Disponível";
+    box.innerHTML = "<strong>Cabine</strong><br>Ocupada";
+  } else {
+    box.className = "box has-background-success-light";
 
-        elemento.className = "sensor-value ok";
-
-    }
-
+    box.innerHTML = "<strong>Cabine</strong><br>Livre";
+  }
 }
 
-conectarMQTT((dados)=>{
+conectarMQTT((dados) => {
+  const livre1 = dados.movimento1 != 0;
 
-    atualizarCabine("movimento1", dados.movimento1);
+  const livre2 = dados.movimento2 != 0;
 
-    atualizarCabine("movimento2", dados.movimento2);
+  let livres = 0;
 
+  if (livre1) livres++;
+
+  if (livre2) livres++;
+
+  document.getElementById("totalCabines").textContent = livres + " / 2";
+
+  atualizarMapa("cab1Mapa", !livre1);
+
+  atualizarMapa("cab2Mapa", !livre2);
 });

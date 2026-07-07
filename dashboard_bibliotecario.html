@@ -8,16 +8,14 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
     />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
   </head>
 
   <body>
     <section class="hero is-fullheight">
       <div class="hero-body">
         <div class="container">
-          <h1 class="title has-text-centered">
-            Dashboard do Bibliotecário
-          </h1>
+          <h1 class="title has-text-centered">Dashboard do Bibliotecário</h1>
           <!-- Cards responsáveis por exibir os dados dos sensores -->
           <div class="columns is-multiline is-centered">
             <div
@@ -58,42 +56,36 @@
           </div>
           <!-- Painel de alertas -->
           <div class="box mt-5" id="painel-alertas">
-            <h2 class="title is-5 has-text-centered">
-                Alertas do Ambiente
-            </h2>
+            <h2 class="title is-5 has-text-centered">Alertas do Ambiente</h2>
 
             <div
-                id="alerta-temperatura"
-                class="notification is-warning"
-                style="display:none"
+              id="alerta-temperatura"
+              class="notification is-warning"
+              style="display: none"
             >
-                Temperatura acima do recomendado.
+              Temperatura acima do recomendado.
             </div>
 
             <div
-                id="alerta-umidade"
-                class="notification is-danger"
-                style="display:none"
+              id="alerta-umidade"
+              class="notification is-danger"
+              style="display: none"
             >
-                Umidade acima do recomendado.
+              Umidade acima do recomendado.
             </div>
 
             <div
-                id="alerta-ruido"
-                class="notification is-danger"
-                style="display:none"
+              id="alerta-ruido"
+              class="notification is-danger"
+              style="display: none"
             >
-                Excesso de ruído detectado.
+              Excesso de ruído detectado.
             </div>
 
-            <div
-                id="sem-alertas"
-                class="notification is-success"
-            >
-                Ambiente dentro das condições ideais.
+            <div id="sem-alertas" class="notification is-success">
+              Ambiente dentro das condições ideais.
             </div>
-
-        </div>
+          </div>
         </div>
       </div>
     </section>

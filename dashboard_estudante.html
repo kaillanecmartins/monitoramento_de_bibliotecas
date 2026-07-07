@@ -8,39 +8,70 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
     />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
   </head>
 
   <body>
     <section class="hero is-fullheight">
       <div class="hero-body">
         <div class="container">
-          <h1 class="title has-text-centered">
-            Dashboard do Estudante
-          </h1>
+          <h1 class="title has-text-centered">Dashboard do Estudante</h1>
           <!-- Cards responsáveis por exibir os dados das cabines -->
-          <div class="columns is-multiline is-centered">
-            <div
-              class="column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen"
-            >
-              <div class="card sensor-card has-text-centered p-5">
-                <div class="sensor-title">Cabine 1</div>
-                <div id="movimento1" class="sensor-value">--</div>
-              </div>
-            </div>
+          <div class="columns is-centered">
+            <div class="column is-5">
+              <div class="card sensor-card has-text-centered p-6">
+                <div class="sensor-title">Cabines Disponíveis</div>
 
-            <div
-              class="column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen"
-            >
-              <div class="card sensor-card has-text-centered p-5">
-                <div class="sensor-title">Cabine 2</div>
-                <div id="movimento2" class="sensor-value">--</div>
+                <div
+                  id="totalCabines"
+                  class="sensor-value"
+                  style="font-size: 4rem"
+                >
+                  --
+                </div>
+
+                <p class="mt-3">Atualização em tempo real</p>
+
+                <button class="button is-link mt-5" id="btnMapa">
+                  Visualizar mapa
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+    <div class="modal" id="modalMapa">
+      <div class="modal-background"></div>
+
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Mapa das Cabines</p>
+
+          <button class="delete" id="fecharMapa"></button>
+        </header>
+
+        <section class="modal-card-body">
+          <div class="columns">
+            <div class="column">
+              <div class="box has-text-centered" id="cab1Mapa">Cabine 1</div>
+            </div>
+
+            <div class="column">
+              <div class="box has-text-centered" id="cab2Mapa">Cabine 2</div>
+            </div>
+          </div>
+
+          <div class="content">
+            <p>
+              <span class="tag is-success"> Livre </span>
+
+              <span class="tag is-danger"> Ocupada </span>
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"></script>
 
     <script src="js/mqtt.js"></script>
