@@ -96,6 +96,10 @@ Acesse o [circuito no Wokwi](https://wokwi.com/projects/463128722414280705) para
 
 Acesse o [dashboard do projeto](https://monitoramentodebibliotecas.vercel.app/) para acompanhar em tempo real os dados de ocupação e monitoramento ambiental.
 
+## Vídeo de Funcionamento do Sistema
+
+[Video](https://drive.google.com/file/d/1b2b0gx2zbRoHCRfOADh_H-kEmaKGwxtI/view?usp=sharing)
+
 ## Melhorias Futuras
 
 - Implementar alertas visuais ou notificações para usuários que estiverem gerando excesso de ruído.
